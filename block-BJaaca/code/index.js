@@ -8,7 +8,9 @@ let character = {}
 
 //  Re-assign the value of `character` variable to and object with the key `characterName` and value of "Arya"
 
-character.characterName = "Arya";
+character = {
+  characterName: "Arya"
+}
 
 // - A variable named `age` is predefined with value 20. Add a new key named `character-age` with the value of `age` variable i.e 20 (don't use the value 20)
 
@@ -35,7 +37,7 @@ character.isFemale = true;
 
 // - Execute the function stored in the greet key of the character object
 
-character.greet;
+character.greet();
 
 //  - Change the method `greet` to now alert `She is [NAME HERE] and her title is [TITLE HERE]`.
 
@@ -45,33 +47,35 @@ character.greet = function() {
 
 // - Check by calling `greet` and see if the message changed or not.
 
-character.greet;
+character.greet();
 
 //  - Add a new property in the character object `isAdult`. The value will be true if age is greater than 18 or it will be false.
 
-character.isAdult = Boolean(character["character-age"] > 18);
+character.isAdult = character.age > 18 ? true : false;
 
 // - Add a new method (function inside objects are called methods) named `changeIsAdult`. When called should be able to flip the value of `isAdult` from true to false and false to true.
 
 character.changeIsAdult = function () {
-  return !isAdult();
+  character.isAdult = !character.isAdult;
 }
 
 // - Add a new key with the name stored in variable `keyName` defined below i.e `playedBy` (use [] for computed property) and the value of "Maisie Williams"
 
 let keyName = 'playedBy';
-character["playedBy"] = "Maisie Williams";
+
+character[keyName] = "Maisie Williams";
 
 // - Using `alert` alert the value stored in key you added above `keyName` use the variable name to access
 
-alert(`${character.playedBy}`);
+alert(character[keyName]);
 
 // - Using the function `console.log` log the value of the key `42`. You don't have to add the key
 
+console.log(character[42]);
 
 // - Add a new key named `totalSeasons` with the value of `1 + 2 + 3 + 2`. Use this expression
 
-character.totalSeasons = Number(1 + 2 + 3 + 2);
+character.totalSeasons = 1 + 2 + 3 + 2;
 
 // - Access the value of the key `totalSeason` (it should be 8)
 
