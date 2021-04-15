@@ -18,7 +18,7 @@ let newUser = user;
 <!-- To add this image here use ![name](./hello.jpg) -->
 
 
-![Memory](./memory)
+![MemoryRep](./memoryrep)
 
 2. Answer the following with reason:
 
@@ -28,10 +28,10 @@ let newUser = user;
 - `user.name == newUser.name;` // true -- same as above
 - `user.sibling == newUser.sibling;` // true -- each key and its value is also copied to newUser so it is true
 - `user.sibling === newUser.sibling;` // true -- same as above
-- `user.sibling == allBrothers;` // false -- 
-- `user.sibling === allBrothers;` // false -- 
-- `brothersCopy === allBrothers;` // false -- 
-- `brothersCopy == allBrothers;` // false -- 
+- `user.sibling == allBrothers;` // false -- they each have different addresses
+- `user.sibling === allBrothers;` // false -- same as above 
+- `brothersCopy === allBrothers;` // false -- different addresses
+- `brothersCopy == allBrothers;` // false -- different addresses
 - `brothersCopy == user.sibling;` // true -- since the values are copied
 - `brothersCopy === user.sibling;` // true -- same as above
 - `brothersCopy[0] === user.sibling[0];` // true -- first value of brothersCopy (index 0) and sibling (user.sibling[0]) are same
