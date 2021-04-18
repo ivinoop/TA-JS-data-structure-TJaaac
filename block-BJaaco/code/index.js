@@ -5,52 +5,43 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
 // 1. Add all the values of numbers and userIds array into the new newly created array named `collection`
 
 let collection = [];
-let sumNumbers = 0, sumUserIds = 0;
 for (let number of numbers) {
-  sumNumbers += number;
+  collection.push(number);
 }
 for (let userId of userIds) {
-  sumUserIds += userId;
+  collection.push(userId);
 }
 
-let totalSum = sumNumbers + sumUserIds;
-collection.push(totalSum);
 console.log(collection);
 
 // 2. Add all the even numbers from both arrays numbers and userIds into a newly created array named `evenCollection`
 
 let evenCollection = [];
-let evenSumNumbers = 0, evenSumUserIds = 0;
 for (let number of numbers) {
   if(number % 2 === 0) {
-    evenSumNumbers += number;
+    evenCollection.push(number);
   }
 }
 for (let userId of userIds) {
   if(userId % 2 === 0) {
-    evenSumUserIds += userId;
+    evenCollection.push(userId)
   }
 }
-let evenTotalSum = evenSumNumbers + evenSumUserIds;
-evenCollection.push(evenTotalSum);
 console.log(evenCollection);
 
 // 3. Add all the odd numbers from both arrays numbers and userIds into a newly created array named `oddCollection`
 
 let oddCollection = [];
-let oddSumNumbers = 0, oddSumUserIds = 0;
 for (let number of numbers) {
   if(number % 2 !== 0) {
-    oddSumNumbers += number;
+    oddCollection.push(number);
   }
 }
 for (let userId of userIds) {
   if(userId % 2 !== 0) {
-    oddSumUserIds += userId;
+    oddCollection.push(userId)
   }
 }
-let oddTotalSum = oddSumNumbers + oddSumUserIds;
-oddCollection.push(oddTotalSum);
 console.log(oddCollection);
 
 /*
@@ -70,6 +61,7 @@ console.log(oddCollection);
 */
 
 function times(time, character = "test") {
+    if(time < 1) return [];
     let arr =[];
     for(let i = 0; i < time; i++){
       arr.push(character);
@@ -99,8 +91,8 @@ function times(time, character = "test") {
 
 function revert(input) {
   let arr = [];
-  for(let i = 0; i <= input.length; i++) {
-    arr.push(input.pop());
+  for(let i = input.length-1; i >= 0; i--) {
+    arr.push(input[i]);
   }
   return arr;
 }
@@ -122,18 +114,36 @@ function revert(input) {
     clear(['a', undefined, 'd', 0,  'c', 'b']); // ['b', 'c', 'd', 'a']
     clear(['Ryan', null, 0,  'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
-function clear(array){
-  let newArr = [];
-  for(let i = 0; i < array.length; i++){
-    if(array[i] == undefined || array[i] == false || array[i] == 0 || array[i] == null || array[i] == ""){
-       delete array[i];
-    }
-    else {
-      newArr.push(array[i])
-    }
+// function clear(array){
+//   let newArr = [];
+//   for(let i = 0; i < array.length; i++){
+//     if(array[i] == undefined || array[i] == false || array[i] == 0 || array[i] == null || array[i] == ""){
+//        delete array[i];
+//     }
+//     else {
+//       newArr.push(array[i])
+//     }
     
+//   }
+//   return newArr;
+// }
+
+function isUnwanted(value) {
+  return value == false ||
+  value == null || 
+  value == undefined ||
+  value == 0 || 
+  value == ""
+}
+
+function clear(arr) {
+  let final = [];
+  for(let value of arr) {
+    if(!isUnwanted(value)) {
+      final.push(value);
+    }
   }
-  return newArr;
+  return final;
 }
 
 // Uncomment the code below and test the output
@@ -143,7 +153,7 @@ function clear(array){
 
 /*
 
- 6. Write a function named arrayToObj which accepts an array and return an object
+ 7. Write a function named arrayToObj which accepts an array and return an object
  where the key will be the index of array and value will be the element of the array.
 
   @param arr (array)
