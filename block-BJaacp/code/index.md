@@ -17,15 +17,15 @@ Answer the following with reason after going through the above code:
 - `obj === newObj` // false; Different addresses
 - `user === newObj` // false; Different addresses
 - `user == newObj` // false; Different addresses
-- `user == obj` // true; user object points to same address as ob
-- `arr == arr2` // true; arr2 array points to same address as arr array
-- `arr === arr2` // true; arr2 array points to same address as arr array
+- `user == obj` // true; user object points to same address as obj, copy by reference
+- `arr == arr2` // true; arr2 array points to same address as arr array, copy by reference
+- `arr === arr2` // true; arr2 array points to same address as arr array, copy by reference
 
 2. What will be the value of `person1` and `person2` ? Explain with reason. Draw the memory representation diagram.
 
 <!-- To add this image here use ![name](./hello.jpg) -->
 
-![Memory](./memory.png)
+![Memory](./memory-rep.png)
 
 ```js
 function personDetails(person) {
